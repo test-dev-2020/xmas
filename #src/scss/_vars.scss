@@ -1,0 +1,17 @@
+
+@mixin n700 {
+    font-family: 'NeusaNextPro-Bold', sans-serif;
+    font-weight: 900;
+}
+
+
+@mixin n500 {
+    font-family: 'NeusaNextPro-Medium', sans-serif;
+    font-weight: 500;
+   
+}
+@mixin n400 {
+    font-family: 'NeusaNextPro-Regular', sans-serif;
+    font-weight: 400;
+    
+}

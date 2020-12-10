@@ -1,0 +1,56 @@
+// @mixin font($font_name, $file_name, $weight, $style) {
+//   @font-face {
+//     font-family: $font_name;
+//     font-display: swap;
+//     src: url('../fonts/#{$file_name}.woff') format('woff'), url('../fonts/#{$file_name}.woff2') format('woff2');
+//     font-weight: #{$weight};
+//     font-style: #{$style};
+//   }
+// }
+// @include font('NeusaNextPro-Bold', 'NeusaNextPro-Bold', '400', 'normal');
+// @include font('NeusaNextPro-Medium', 'NeusaNextPro-Medium', '400', 'normal');
+// @include font('NeusaNextPro-Regular', 'NeusaNextPro-Regular', '400', 'normal');
+
+@font-face {
+  font-family: 'NeusaNextPro-Bold';
+  font-display: swap;
+  src: url('../fonts/NeusaNextPro-Bold.woff') format('woff'), url('../fonts/NeusaNextPro-Bold.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NeusaNextPro-Medium';
+  font-display: swap;
+  src: url('../fonts/NeusaNextPro-Medium.woff') format('woff'), url('../fonts/NeusaNextPro-Medium.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeusaNextPro-Bold';
+  font-display: swap;
+  src: url('../fonts/NeusaNextPro-Regular.woff') format('woff'), url('../fonts/NeusaNextPro-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+// @font-face {
+//   font-family: 'NeusaNextPro-Bold';
+//   src: url('https://buff.bet/dist/NeusaNextPro-Bold.ttf');
+//   font-weight: 900;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'NeusaNextPro-Medium';
+//   src: url('https://buff.bet//dist/NeusaNextStd-Medium.ttf');
+//   font-weight: 500;
+//   font-style: italic;
+// }
+
+// @font-face {
+//   font-family: 'NeusaNextPro-Regular';
+//   src: url('https://buff.bet/dist/NeusaNextStd-Regular.ttf');
+//   font-weight: 400;
+//   font-style: italic;
+// }
