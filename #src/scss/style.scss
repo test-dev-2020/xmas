@@ -23,7 +23,7 @@
   position: absolute;
   top: 100rem;
   left: 88rem;
-  z-index: 100;
+  z-index: 2;
 }
 .container {
   max-width: 1200rem;
@@ -107,7 +107,6 @@
   z-index: 1;
 }
 .content__wrapper {
-  z-index: 2;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -135,7 +134,7 @@
     bottom: 0;
     left: -110rem;
     z-index: 1;
-    width: 309px;
+    width: 309rem;
   }
   &.letter-right-el {
     bottom: 0;
@@ -237,6 +236,7 @@
 .wrapper-bonus-img {
   width: 253rem;
   margin: 0 auto 6rem;
+  cursor: pointer;
 }
 .terms {
   font-size: 18rem;
@@ -270,10 +270,15 @@ a.wrapper-btn {
 .snow {
   $total: 200;
   position: absolute;
-  width: 10px;
-  height: 10px;
-  background: white;
+  width: 10rem;
+  height: 10rem;
+  background: transparent;
   border-radius: 50%;
+  &::before {
+    position: absolute;
+    content: '€';
+    font-size: 40rem;
+  }
 
   @for $i from 1 through $total {
     $random-x: random(1000000) * 0.0001vw;
@@ -288,7 +293,7 @@ a.wrapper-btn {
 
     &:nth-child(#{$i}) {
       opacity: random(10000) * 0.0001;
-      transform: translate($random-x, -10px) scale($random-scale);
+      transform: translate($random-x, -10rem) scale($random-scale);
       animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
     }
 
@@ -298,7 +303,7 @@ a.wrapper-btn {
       }
 
       to {
-        transform: translate($random-x-end-yoyo, 100vh) scale($random-scale);
+        transform: translate($random-x-end-yoyo, 200vh) scale($random-scale);
       }
     }
   }
@@ -366,5 +371,173 @@ a.wrapper-btn {
   span {
     color: #6389b2;
     font-weight: 900;
+  }
+}
+
+.content__code-bg {
+  position: relative;
+}
+#bonus {
+  visibility: none;
+  opacity: 0;
+  &.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+#clipboardMessage {
+  font-size: 24rem;
+  line-height: 24rem;
+  position: absolute;
+  left: 50%;
+  min-width: 150rem;
+  padding: 0 10rem;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background: #6389b2;
+  background: linear-gradient(90deg, rgba(209, 142, 13, 0) 0%, #6389b2 25%, #6389b2 75%, rgba(209, 142, 13, 0) 100%);
+  opacity: 0;
+  -webkit-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  top: 0rem;
+  visibility: visible;
+  z-index: 500;
+  padding: 10rem 20rem;
+}
+
+#clipboardMessage.visible {
+  top: -100rem;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 1280px) {
+  :root {
+    font-size: 0.6px;
+  }
+  .content__inner {
+    padding-top: 20rem;
+  }
+  .glow.glow-1 {
+    top: -386rem;
+  }
+  .content__loterry {
+    margin-bottom: 0;
+  }
+  .wrapper-promo {
+    margin-bottom: 30rem;
+  }
+  .terms {
+    font-size: 26rem;
+    margin: 40rem 0;
+  }
+  .popup-box {
+    width: 70vw;
+    font-size: 40rem;
+    p {
+      font-size: 40rem;
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .elements.santa {
+    display: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .content__wrapper-box {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  .container {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 700px) {
+  .glow.glow-1,
+  .glow.glow-2,
+  .glow.glow-3 {
+    display: none;
+  }
+  .lotterry-logo {
+    left: 10%;
+    margin-left: 0;
+  }
+  .elements.letter-left-el {
+    left: -110rem;
+    width: 200rem;
+  }
+  .elements.letter-right-el {
+    right: 30rem;
+    width: 100rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper-table td {
+    padding: 13rem 10rem;
+  }
+  .popup-box {
+    width: 70vw;
+    font-size: 30rem;
+    p {
+      font-size: 30rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .lotterry-logo {
+    left: 0%;
+  }
+  .wrapper-title {
+    font-size: 30rem;
+    margin-bottom: 5rem;
+  }
+  .content__wrapper {
+    padding: 40rem 30rem;
+  }
+  .content__wrapper p {
+    margin-bottom: 10rem;
+  }
+  .wrapper-table {
+    margin-top: 10rem;
+  }
+  .elements.letter-left-el {
+    left: -50rem;
+    width: 150rem;
+  }
+  .elements.letter-right-el {
+    right: 0rem;
+    width: 100rem;
+  }
+}
+@media (max-width: 460px) {
+  .elements.letter-left-el {
+    left: -50rem;
+    width: 100rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .content__loterry {
+    display: none;
+  }
+  .elements.letter-top-el {
+    display: none;
+  }
+  .item-top-left {
+    display: none;
+  }
+  a.wrapper-btn {
+    width: 300rem;
+    padding: 22rem 0;
+    font-size: 30rem;
   }
 }

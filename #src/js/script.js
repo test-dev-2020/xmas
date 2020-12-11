@@ -6,6 +6,28 @@ document.addEventListener('DOMContentLoaded', function(){
   const content =document.body
 
 
+  const navClose = document.querySelector('#nav-close')
+  const menuBtn = document.querySelector('.menu__btn')
+  const menuList =document.querySelector('.menu__list')
+  const menuBg= document.querySelector('.bg-invisible')
+ 
+  function toogle() {
+    menuList.classList.toggle('active')
+    menuBg.classList.toggle('active')
+    if(menuList.classList.contains('active')){
+      document.body.style.overflow = "hidden";
+    }
+    else{
+      document.body.style.overflow = "inherit";
+    }
+
+  }
+
+  menuBtn.addEventListener('click', toogle)
+  navClose.addEventListener('click',toogle)
+  menuBg.addEventListener('click', toogle)
+
+
 
   function testWebP(callback) {
     var webP = new Image()
@@ -49,7 +71,45 @@ document.addEventListener('DOMContentLoaded', function(){
       closed()
     }
   })
+
+
+  const text = document.querySelector('#bonus')
+  const elm =document.querySelector('#divClipboard')
+  const clipboardMessage = document.querySelector('#clipboardMessage')
+
   
+  function copyClipboard() {
+   
+    // for Internet Explorer
+  
+    if(document.body.createTextRange) {
+      let range = document.body.createTextRange();
+      range.moveToElementText(text);
+      range.select();
+      document.execCommand("Copy");
+      
+    }
+    else if(window.getSelection) {
+      // other browsers
+  
+      let selection = window.getSelection();
+      let range = document.createRange();
+      range.selectNodeContents(text);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand("Copy");
+    }
+  }
+  elm.addEventListener('click', function(){
+    console.log('cgecj')
+    copyClipboard()
+    clipboardMessage.classList.add('visible')
+    
+    setTimeout(()=>{
+      clipboardMessage.classList.remove('visible')
+
+    }, 1000)
+  } )
 
 })
 
