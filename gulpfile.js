@@ -14,7 +14,7 @@ let path = {
   src: {
     html: [source_folder + '/*.html', '!' + source_folder + '/_*.html'],
     css: source_folder + '/scss/style.scss',
-    js: source_folder + '/js/*.js',
+    js: source_folder + '/js/script.js',
     img: source_folder + '/img/**/*.{jpg,png,svg,gif,ico,webp}',
     fonts: source_folder + '/fonts/*.ttf'
   },
@@ -58,7 +58,7 @@ function browserSync(params) {
 }
 
 function html() {
-  return src(path.src.html).pipe(fileinclude()).pipe(dest(path.build.html)).pipe(browsersync.stream())
+  return src(path.src.html).pipe(fileinclude()).pipe(webphtml()).pipe(dest(path.build.html)).pipe(browsersync.stream())
 }
 
 function css() {
@@ -75,6 +75,7 @@ function css() {
         cascade: true
       })
     )
+    .pipe(webpcss({}))
     .pipe(dest(path.build.css))
     .pipe(clean_css())
     .pipe(
@@ -102,7 +103,7 @@ function images() {
   return src(path.src.img)
     .pipe(
       webp({
-        quality: 70
+        quality: 90
       })
     )
     .pipe(dest(path.build.img))
@@ -116,7 +117,7 @@ function images() {
           }
         ],
         interlaced: true,
-        optimizationLevel: 3 // 0 to 7
+        optimizationLevel: 5 // 0 to 7
       })
     )
     .pipe(dest(path.build.img))

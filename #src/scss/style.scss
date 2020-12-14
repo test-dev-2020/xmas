@@ -5,7 +5,7 @@
   font-size: 0.8px;
 }
 .content {
-  background-image: url(../img/bg.jpg);
+  background-image: url(../img/bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -462,7 +462,9 @@ a.wrapper-btn {
 @media (max-width: 700px) {
   .glow.glow-1,
   .glow.glow-2,
-  .glow.glow-3 {
+  .glow.glow-3,
+  .elements.candy,
+  .elements.tree {
     display: none;
   }
   .lotterry-logo {
